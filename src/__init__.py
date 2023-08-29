@@ -1,14 +1,13 @@
-from fastapi import APIRouter, FastAPI
-from fastapi.responses import RedirectResponse
+from fastapi import FastAPI
 
-from .config import get_config
+from .routes import MainRoutes
+from .settings import Settings
 
 
 class App:
     # Classe de configuração do app
     _app: FastAPI
-    _settings: dict = get_config()
-    _router: APIRouter = APIRouter()
+    _settings: dict = Settings.config()
 
     def __init__(self) -> None:
         # Cria a instância do app
@@ -17,12 +16,8 @@ class App:
             description="",
             version=self._settings.APP_VERSION,
         )
-        # Cria o middleware
-    @_router.get("/")
-    def index() -> RedirectResponse:
-        # Redireciona para a documentação
-        return RedirectResponse("/docs")
     def create_app(self) -> FastAPI():
         # Registra as rotas
-        self._app.include_router(self._router)
+        self._app.include_router(MainRoutes.endpoint)
+
         return self._app

@@ -12,4 +12,4 @@ except Exception as e:
 
 if __name__ == "__main__":
     # Inicia o servidor
-    uvicorn.run(app)
+    uvicorn.run(app=app)
