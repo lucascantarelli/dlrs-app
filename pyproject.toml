@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "Dlrs Api"
+version = "0.1.0"
+description = ""
+authors = ["Lucas Cantarelli <lucascantarellijpa@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.103.0"
+uvicorn = "^0.23.2"
+pydantic = "^2.3.0"
+pydantic-settings = "^2.0.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+ruff = "^0.0.286"
+pytest = "^7.4.0"
+
+[tool.poetry.scripts]
+start = "src.main:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[virtualenvs]
+in-project = true
+path = ".venv"
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+select = [
+    "E",   # pycodestyle error
+    "W",   # pycodestyle warning
+    "F",   # pyflakes
+    "A",   # flakes8-builtins
+    "COM", # flakes8-commas
+    "C4",  # flake8-comprehensions
+    "Q",   # flake8-quotes
+    "SIM", # flake8-simplify
+    "PTH", # flake8-use-pathlib
+    "I",   # isort
+    "N",   # pep8 naming
+    "UP",  # pyupgrade  
+    "S",   # bandit
+]

@@ -1,0 +1,24 @@
+# Virtual env
+.venv
+.env
+*~
+*.py[cod]
+*.orig
+
+# Unit test / coverage reports
+.coverage
+htmlcov/
+logs/
+
+# cache
+__pycache__
+.mypy_cache
+.pytest_cache
+.ruff_cache
+
+# Vscode
+.vscode
+
+# Flask-Session
+flask_session
+
