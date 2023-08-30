@@ -10,6 +10,10 @@ class Settings(BaseSettings):
     APP_VERSION: str = os.environ.get("APP_VERSION")
     APP_ENV: str = os.environ.get("APP_ENV", "development")
 
+    # Logger settings
+    APP_LOG_LEVEL: str = os.environ.get("APP_LOG_LEVEL", "DEBUG")
+    APP_LOG_FORMAT: str = os.environ.get("APP_LOG_FORMAT", "%(asctime)s %(levelname)s %(message)s")
+
     @lru_cache
     def config() -> {}:
         configs = {"development": DevelopmentConfig, "production": ProductionConfig}

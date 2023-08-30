@@ -23,7 +23,7 @@ lint:## Roda o format, antes roda o lint.
 		echo -e $?; \
 	fi
 	@echo -e ${BOLD}Start coding lint with ruff...${RESET};
-	@poetry run ruff --fix . > /dev/null
+	@poetry run ruff --fix .
 	@if [ "$$?" -eq 0 ]; then \
 		echo -e ${SUCCESS}Fixing lint with ruff...${RESET}; \
 	else \
