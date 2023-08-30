@@ -10,7 +10,8 @@ class Logger:
     def __init__(self, name: str):
         # Configura o logging.
         logging.basicConfig(
-            format=self._settings.APP_LOG_FORMAT, level=self._settings.APP_LOG_LEVEL,
+            format=self._settings.APP_LOG_FORMAT,
+            level=self._settings.APP_LOG_LEVEL,
         )
 
         # Seta o logging.
