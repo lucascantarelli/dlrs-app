@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.testclient import TestClient
 
 from .routes import MainRoutes
 from .settings import Settings
@@ -16,8 +17,13 @@ class App:
             description="",
             version=self._settings.APP_VERSION,
         )
-    def create_app(self) -> FastAPI():
+
+        # Registra as rotas
+        self.register_routes()
+
+    def register_routes(self) -> None:
         # Registra as rotas
         self._app.include_router(MainRoutes.endpoint)
 
+    def get_app(self) -> TestClient:
         return self._app

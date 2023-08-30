@@ -11,14 +11,17 @@ fastapi = "^0.103.0"
 uvicorn = "^0.23.2"
 pydantic = "^2.3.0"
 pydantic-settings = "^2.0.3"
+pre-commit = "^3.3.3"
+
+
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
 ruff = "^0.0.286"
 pytest = "^7.4.0"
-
-[tool.poetry.scripts]
-start = "src.main:app"
+pytest-cov = "^4.1.0"
+httpx = "^0.24.1"
+trio = "^0.22.2"
 
 [build-system]
 requires = ["poetry-core"]
@@ -29,7 +32,7 @@ in-project = true
 path = ".venv"
 
 [tool.black]
-line-length = 120
+line-length = 88
 
 [tool.ruff]
 select = [
@@ -44,6 +47,6 @@ select = [
     "PTH", # flake8-use-pathlib
     "I",   # isort
     "N",   # pep8 naming
-    "UP",  # pyupgrade  
+    "UP",  # pyupgrade
     "S",   # bandit
 ]
