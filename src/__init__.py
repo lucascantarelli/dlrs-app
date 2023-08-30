@@ -16,6 +16,7 @@ class App:
             description="",
             version=self._settings.APP_VERSION,
         )
+
     def create_app(self) -> FastAPI():
         # Registra as rotas
         self._app.include_router(MainRoutes.endpoint)

@@ -13,6 +13,7 @@ class MainRoutes:
         await MainRoutes.logger.error("ERROR")
         await MainRoutes.logger.warning("WARNING")
         return {"status_code": 200, "data": "OK"}
+
     @endpoint.get("/health")
     async def health():
         return {200, "Healthy"}

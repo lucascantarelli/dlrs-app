@@ -33,7 +33,7 @@ lint:## Roda o format, antes roda o lint.
 
 test:
 	@echo -e ${BOLD}Start testing with pytest...${RESET};
-	#@poetry run pytest -v --cov=app --cov-report=term-missing --cov-report=html tests/ > /dev/null	
+	#@poetry run pytest -v --cov=app --cov-report=term-missing --cov-report=html tests/ > /dev/null
 
 ######################################## GIT HOOKS ######################################
 hooks:

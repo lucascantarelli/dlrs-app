@@ -16,12 +16,15 @@ class Logger:
 
         # Seta o logging.
         self._log = logging.getLogger(name)
+
     async def info(self, message: str, *args):
         # Logging information
         self._log.info(message, *args)
+
     async def warning(self, message: str, *args):
         # Logging warning
         self._log.warning(message, *args)
+
     async def error(self, message: str, *args):
         # Logging error
         self._log.error(message, *args)

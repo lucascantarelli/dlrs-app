@@ -22,8 +22,10 @@ class Settings(BaseSettings):
         configs = {"development": DevelopmentConfig, "production": ProductionConfig}
         return configs[os.environ.get("APP_ENV")]()
 
+
 class DevelopmentConfig(Settings):
     pass
+
 
 class ProductionConfig(Settings):
     pass
