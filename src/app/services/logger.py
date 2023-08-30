@@ -1,6 +1,6 @@
 import logging
 
-from src.settings import Settings
+from src.app.settings import Settings
 
 
 class Logger:

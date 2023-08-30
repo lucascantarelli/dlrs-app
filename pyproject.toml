@@ -12,7 +12,7 @@ uvicorn = "^0.23.2"
 pydantic = "^2.3.0"
 pydantic-settings = "^2.0.3"
 pre-commit = "^3.3.3"
-httpx = "^0.24.1"
+
 
 
 [tool.poetry.group.dev.dependencies]
@@ -20,6 +20,8 @@ black = "^23.7.0"
 ruff = "^0.0.286"
 pytest = "^7.4.0"
 pytest-cov = "^4.1.0"
+httpx = "^0.24.1"
+trio = "^0.22.2"
 
 [build-system]
 requires = ["poetry-core"]
