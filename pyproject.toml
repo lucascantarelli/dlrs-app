@@ -12,6 +12,7 @@ uvicorn = "^0.23.2"
 pydantic = "^2.3.0"
 pydantic-settings = "^2.0.3"
 pre-commit = "^3.3.3"
+httpx = "^0.24.1"
 
 
 [tool.poetry.group.dev.dependencies]
