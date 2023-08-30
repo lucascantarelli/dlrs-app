@@ -18,3 +18,11 @@ repos:
       - id: ruff
         types_or: [python]
         args: [--fix, --exit-non-zero-on-fix]
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: poetry run pytest -v --cov=app --cov-report=term-missing --cov-report=html src/tests
+        language: system
+        pass_filenames: false
