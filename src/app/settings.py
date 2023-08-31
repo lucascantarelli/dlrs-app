@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     APP_ENV: str = os.environ.get("APP_ENV", "development")
 
     # Logger settings
+    APP_LOG_FILE: str = os.environ.get("APP_LOG_FILE", "logging.conf")
     APP_LOG_LEVEL: str = os.environ.get("APP_LOG_LEVEL", "DEBUG")
     APP_LOG_FORMAT: str = os.environ.get(
         "APP_LOG_FORMAT",
