@@ -26,3 +26,4 @@ repos:
         entry: poetry run pytest -v --cov=app --cov-report=term-missing --cov-report=html src/tests
         language: system
         pass_filenames: false
+        always_run: false
