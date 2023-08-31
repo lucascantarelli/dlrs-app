@@ -1,14 +1,23 @@
 import logging
 from logging.config import dictConfig
 
-from app.settings import Settings
+from src.app.settings import Settings
+
+# Todo: Criar as classes de configuração do logging
+# Todo: transferir a configuração para a classe settings
+# Todo: e mudar as configurações de acordo com o ambiente
 
 
 class Logger:
     _log: logging.Logger = None
     _settings: dict = Settings.config()
 
-    def __init__(self, name: str):
+    def __init__(self, log_name: str):
+        self._configure(log_name)
+        # todo: dictConfig(self._settings.logging)
+        self._log = logging.getLogger(name=log_name)
+
+    def _configure(self, log_name: str) -> None:
         # Configura o logging.
         self._log_config: dict = {
             "version": 1,
@@ -16,8 +25,8 @@ class Logger:
             "formatters": {
                 "access": {
                     "()": "uvicorn.logging.AccessFormatter",
-                    "fmt": "%(levelprefix)s %(asctime)s - %(client_addr)s"
-                    + '- "%(request_line)s" %(status_code)s',
+                    "fmt": "%(levelprefix)s %(asctime)s"
+                    + '- %(client_addr)s - "%(request_line)s" %(status_code)s',
                     "datefmt": "%Y-%m-%d %H:%M:%S",
                     "use_colors": True,
                 },
@@ -41,7 +50,11 @@ class Logger:
                 },
             },
             "loggers": {
-                name: {"handlers": ["default"], "level": "DEBUG", "propagate": False},
+                log_name: {
+                    "handlers": ["default"],
+                    "level": "DEBUG",
+                    "propagate": False,
+                },
                 "uvicorn": {
                     "handlers": ["default"],
                     "level": "DEBUG",
@@ -49,24 +62,23 @@ class Logger:
                 },
                 "uvicorn.access": {
                     "handlers": ["access"],
-                    "level": "INFO",
+                    "level": "DEBUG",
                     "propagate": False,
                 },
                 "uvicorn.error": {"level": "INFO", "propagate": False},
             },
         }
-
+        # Aplica a configuração do logging
         dictConfig(self._log_config)
-        self._log = logging.getLogger(name)
 
-    async def info(self, message: str, *args):
+    async def info(self, message: str, *args) -> None:
         # Logging information
         self._log.info(message, *args)
 
-    async def warning(self, message: str, *args):
+    async def warning(self, message: str, *args) -> None:
         # Logging warning
         self._log.warning(message, *args)
 
-    async def error(self, message: str, *args):
+    async def error(self, message: str, *args) -> None:
         # Logging error
         self._log.error(message, *args)
