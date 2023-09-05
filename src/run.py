@@ -1,6 +1,6 @@
 import uvicorn
 
-from . import App
+from src.app import App
 
 # Cria a instância do app
 app = App().get_app()
