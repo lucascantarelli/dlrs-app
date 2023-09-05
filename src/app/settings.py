@@ -1,5 +1,6 @@
 import os
 from functools import lru_cache
+from typing import Any
 
 from pydantic_settings import BaseSettings
 
@@ -15,7 +16,10 @@ class Settings(BaseSettings):
 
     @lru_cache
     def config() -> {}:
-        configs = {"development": DevelopmentConfig, "production": ProductionConfig}
+        configs: dict[str, Any] = {
+            "development": DevelopmentConfig,
+            "production": ProductionConfig,
+        }
         return configs[os.environ.get("APP_ENV")]()
 
 

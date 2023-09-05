@@ -78,24 +78,20 @@ create_module: ## Cria um novo módulo.
 	@echo "Digite o nome do módulo: "
 	@read module_name; \
 	echo "Criando o módulo: $$module_name"; \
-	mkdir -p app/$$module_name; \
-	touch app/$$module_name/__init__.py; \
-	mkdir -p app/$$module_name/controllers; \
-	touch app/$$module_name/controllers/__init__.py; \
-	touch app/$$module_name/controllers/$$module_name"_controller.py"; \
-	mkdir -p app/$$module_name/models; \
-	touch app/$$module_name/models/__init__.py; \
-	mkdir -p app/$$module_name/repositories; \
-	touch app/$$module_name/repositories/__init__.py; \
-	touch app/$$module_name/repositories/$$module_name"_repository.py"; \
-	mkdir -p app/$$module_name/routes; \
-	touch app/$$module_name/routes/__init__.py; \
-	touch app/$$module_name/routes/$$module_name"_routes.py"; \
-	mkdir -p views/$$module_name; \
+	mkdir -p src/app/$$module_name; \
+	touch src/app/$$module_name/__init__.py; \
+	mkdir -p src/app/$$module_name/models; \
+	touch src/app/$$module_name/models/__init__.py; \
+	mkdir -p src/app/$$module_name/views; \
+	touch src/app/$$module_name/views/__init__.py; \
+	mkdir -p src/app/$$module_name/repositories; \
+	touch src/app/$$module_name/repositories/__init__.py; \
+	mkdir -p src/app/$$module_name/services; \
+	touch src/app/$$module_name/services/__init__.py; \
+	touch src/app/$$module_name/routes.py"; \
 	mkdir -p tests/$$module_name; \
 	touch tests/$$module_name/conftest.py; \
-	touch tests/$$module_name/"test_"$$module_name"routes.py"; \
-	touch tests/$$module_name/"test_"$$module_name"controllers.py"; \
-	touch tests/$$module_name/"test_"$$module_name"repositories.py"; \
-	touch tests/$$module_name/"test_"$$module_name"models.py"; \
+	touch tests/$$module_name/"test_routes.py"; \
+	touch tests/$$module_name/"test_repositories.py"; \
+	touch tests/$$module_name/"test_services.py"; \
 	echo "Módulo criado com sucesso!"
