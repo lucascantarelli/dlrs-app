@@ -5,6 +5,10 @@ description = ""
 authors = ["Lucas Cantarelli <lucascantarellijpa@gmail.com>"]
 readme = "README.md"
 
+packages = [
+    {include = "*", from = "./src"}
+]
+
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = "^0.103.0"
@@ -12,8 +16,6 @@ uvicorn = "^0.23.2"
 pydantic = "^2.3.0"
 pydantic-settings = "^2.0.3"
 pre-commit = "^3.3.3"
-
-
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
