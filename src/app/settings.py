@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     APP_ENV: str = os.environ.get("APP_ENV", "development")
 
     # Logger settings
-    APP_LOG_FILE: str = os.environ.get("APP_LOG_FILE", "fastapi.log")
+    APP_LOG_FILE: str = os.environ.get("APP_LOG_FILE", "api.log")
 
     @lru_cache
     def config() -> {}:
