@@ -1,11 +1,10 @@
-import uvicorn
 from fastapi import FastAPI
 
-from src.app import App
+from src import App
 
 # Cria a instância do app
-app: FastAPI = App().get_app()
+app: FastAPI = App.create_app()
 
 if __name__ == "__main__":
     # Inicia o servidor
-    uvicorn.run(app=app)
+    App.run_app(app)
